@@ -10,7 +10,21 @@ export const Heading: React.FC<HeadingProps> = ({
   children,
   ...props
                                                 }) => {
+  const getTextParams = (level) => {
+    switch (level) {
+      case 'h1':
+        return 'text-3xl font-semibold'
+      case 'h2':
+        return 'text-xl font-medium'
+      case 'h3':
+      case 'h4':
+      case 'h5':
+      case 'h6':
+        return 'text-base font-medium'
+    }
+  }
   const Tag = level as keyof React.JSX.IntrinsicElements
+  const textSize = getTextParams(level)
 
-  return React.createElement(Tag, { className: "text-3xl font-semibold text-slate-900 mt-1" + ' ' + className, ...props }, children)
+  return React.createElement(Tag, { className: `${textSize} text-slate-900 mt-1` + ' ' + className, ...props }, children)
 }
