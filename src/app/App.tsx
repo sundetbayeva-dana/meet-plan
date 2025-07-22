@@ -7,7 +7,9 @@ export function App() {
   return (
     <>
       <Header />
-      <RouterProvider router={router} />
+      <div className="w-5/6 m-auto">
+        <RouterProvider router={router} />
+      </div>
     </>
   )
 }
